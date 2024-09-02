@@ -33,7 +33,7 @@ app.post('/api/shorturl', async(req, res) => {
   let isUrlValid = validator.isURL(url, {require_protocol: true,  protocols: ['http','https']});
 
   if(!isUrlValid) {
-    return res.status(400).json({ error: 'invalid url' })
+    return res.status(200).json({ error: 'invalid url' })
   }
 
   let allLinks = await links.find()
